@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "types": ["node"],
+    "lib": ["es6"]
+  },
+  "compileOnSave": true,
+  "include": [
+    "./index.ts"
+  ]
+}
