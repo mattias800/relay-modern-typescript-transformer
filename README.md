@@ -1,6 +1,9 @@
 # relay-modern-typescript-transformer
 A Typescript transformer that transforms GraphQL queries to require functions.
 
+This is loosely based on `typescript-relay-plugin`, which works with Relay Classic, but not Relay Modern.
+https://github.com/Pathgather/typescript-relay-plugin
+
 # Tutorial
 
 ### Install with Yarn (or NPM)
@@ -122,6 +125,19 @@ const query = function () { return require('./__generated__/WelcomeScreenQuery.g
 ```
 
 Remember to name your query according to constraints.
+
+# Typings
+
+If you want Typescript types for the GraphQL types, you can use this tool.
+https://github.com/dotansimha/graphql-code-generator
+
+``` 
+$ yarn add -D graphql-code-generator 
+```
+
+``` 
+$ gql-gen --file src/data/schema.json --template typescript --out ./src/typings/ ./src/**/*.ts
+```
 
 # Troubleshooting
 
