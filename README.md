@@ -68,7 +68,12 @@ You can now use Relay Modern with Typescript!
 
 ## Example
 
-```js 
+```js
+import * as React from 'react';
+import { graphql, QueryRenderer } from 'react-relay';
+import { environment } from './config/relay/RelayEnvironmentFactory';
+import { Pokemon } from './typings/types';
+
 const query = graphql`
 query WelcomeScreenQuery {
   pokemon(name: "Pikachu") {
@@ -88,11 +93,13 @@ export class WelcomeScreen extends React.Component {
         environment={environment}
         query={query}
         variables={{}}
-        render={({ error, props }) => {
+        render={({ error, props }: { error: any, props: { pokemon: Pokemon } }) => {
           if (error) {
             return <div>{error.message}</div>;
           } else if (props) {
-            return <WelcomePane />;
+            const { pokemon } = props;
+            return <div>{pokemon.name} - {pokemon.weight && pokemon.weight.minimum}
+              - {pokemon.weight && pokemon.weight.minimum}</div>;
           }
           return <div>Loading</div>;
         }}
@@ -100,6 +107,7 @@ export class WelcomeScreen extends React.Component {
     );
   }
 }
+
 ```
 
 This code is placed in:
