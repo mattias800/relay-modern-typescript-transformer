@@ -1,6 +1,6 @@
 {
   "name": "relay-modern-typescript-transformer",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A transformer for Typescript that transforms GraphQL queries to require functions.",
   "main": "index.js",
   "scripts": {
