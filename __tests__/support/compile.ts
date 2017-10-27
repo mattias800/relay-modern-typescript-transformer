@@ -1,8 +1,7 @@
 import * as ts from 'typescript';
-import {transformer} from '../../index';
+import { transformer } from '../../index';
 
-export function compile(
-    filePaths: string[], writeFileCallback?: ts.WriteFileCallback): void {
+export function compile(filePaths: string[]): void {
   const program = ts.createProgram(filePaths, {
     strict: true,
     noEmitOnError: true,
@@ -12,19 +11,18 @@ export function compile(
     before: [transformer],
     after: [],
   };
-  const emitResult = program.emit(
-      undefined, undefined, undefined, false, transformers);
+  const emitResult = program.emit(undefined, undefined, undefined, false, transformers);
 
-  const {emitSkipped, diagnostics} = emitResult;
+  const { emitSkipped, diagnostics } = emitResult;
 
   if (emitSkipped) {
     throw new Error(
-        diagnostics.map(diagnostic =>
-            `${diagnostic.file ? diagnostic.file.fileName : 'No file'}
+      diagnostics.map(diagnostic =>
+        `${diagnostic.file ? diagnostic.file.fileName : 'No file'}
             ${diagnostic.messageText}
             ${diagnostic.source}
             ${diagnostic.code.toString()}
             `
-        ).join('\n'));
+      ).join('\n'));
   }
 }
