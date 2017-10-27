@@ -16,6 +16,8 @@ Read the Relay Modern docs for more info.
 
 ### Add transform to Typescript config
 
+#### fuse-box
+
 For `fuse-box`, just add:
 
 ```js
@@ -35,6 +37,10 @@ fuse = FuseBox.init(
       },
     });
 ``` 
+
+#### webpack
+
+For `webpack`, see the manual for the Typescript loader you are using.
 
 ### Run relay-compiler on your sources
 
