@@ -9,6 +9,7 @@
   },
   "author": "",
   "license": "ISC",
+  "repository": "https://github.com/mattias800/relay-modern-typescript-transformer",
   "devDependencies": {
     "@types/node": "^8.0.47",
     "@types/react-relay": "^1.3.1",
